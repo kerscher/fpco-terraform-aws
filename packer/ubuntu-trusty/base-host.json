@@ -21,7 +21,6 @@
       "subnet_id": "{{user `subnet_id`}}",
       "region": "{{user `region`}}",
       "ami_name": "base-host-{{ isotime | clean_ami_name }}",
-      "ami_regions": ["{{user `copy_to_a` }}", "{{user `copy_to_b` }}"],
       "ssh_username": "ubuntu",
       "tags": {
 	  "Name": "base-host",
