@@ -9,7 +9,7 @@ output "cidr_blocks" {
 }
 
 // list of Availability Zones
-output "az" {
+output "azs" {
   value = ["${aws_subnet.main.*.availability_zones}"]
 }
 
