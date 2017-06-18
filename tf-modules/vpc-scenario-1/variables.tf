@@ -1,5 +1,5 @@
 variable "name_prefix" {
-  description = "Project name. It will be prepended to all resources."
+  description = "Name to prefix various resources with"
 }
 
 variable "region" {
