@@ -16,7 +16,7 @@
   "builders": [ {
       "type": "amazon-ebs",
       "source_ami": "{{user `source_ami`}}",
-      "instance_type": "t2.small",
+      "instance_type": "{{user `instance_type`}}",
       "vpc_id": "{{user `vpc_id`}}",
       "subnet_id": "{{user `subnet_id`}}",
       "region": "{{user `region`}}",
