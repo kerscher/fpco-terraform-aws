@@ -23,7 +23,7 @@ salt-call --local                              \
 salt-call --local                                             \
           state.single git.latest                             \
           rev=master                                          \
-          name=git@github.com:fpco/bootstrap-salt-formula.git \
+          name=https://github.com/fpco/bootstrap-salt-formula \
           target=/srv/bootstrap-salt-formula
 
 # overwrite the empty bootstrap pillar with the user's
