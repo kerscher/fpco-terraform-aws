@@ -44,6 +44,7 @@ module "private-subnets" {
   vpc_id      = "${module.vpc.id}"
   name_prefix = "${var.name_prefix}-private"
   cidr_blocks = "${var.private_subnet_cidrs}"
+  public      = false
   extra_tags  = "${var.extra_tags}"
 }
 
