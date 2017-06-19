@@ -16,17 +16,17 @@ variable "region" {
 
 variable "ssh_pubkey" {
   description = "File path to SSH public key"
-  default     = "~/.ssh/id_rsa.pub"
+  default     = "./id_rsa.pub"
 }
 
 variable "ssh_key" {
   description = "File path to SSH public key"
-  default     = "~/.ssh/id_rsa"
+  default     = "./id_rsa"
 }
 
 variable "public_subnet_cidrs" {
   default     = ["10.23.11.0/24", "10.23.12.0/24", "10.23.13.0/24"]
-  description = "A list of public subnet CIDRs to deploy inside the VPC."
+  description = "A list of public subnet CIDRs to deploy inside the VPC"
 }
 
 provider "aws" {
@@ -84,7 +84,7 @@ resource "aws_instance" "web" {
   vpc_security_group_ids      = ["${module.public-ssh-sg.id}",
                                  "${module.open-egress-sg.id}"
   ]
-  subnet_id = "${module.vpc.public_subnet_ids[0]}"
+  subnet_id = "${element(module.vpc.public_subnet_ids, count.index)}"
   tags {
     Name = "${var.name}-web-${count.index}"
   }
