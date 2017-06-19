@@ -7,9 +7,9 @@
  */
 
 resource "aws_subnet" "main" {
-  count             = "${length(var.cidrs)}"
+  count             = "${length(var.cidr_blocks)}"
   vpc_id            = "${var.vpc_id}"
-  cidr_block        = "${var.cidrs[count.index]}"
+  cidr_block        = "${var.cidr_blocks[count.index]}"
   availability_zone = "${element(var.azs, count.index)}"
   tags              = "${merge(map("Name", "${var.name_prefix}-${format("%02d", count.index)}-${element(var.azs, count.index)}"), "${var.extra_tags}")}"
 }
