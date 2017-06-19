@@ -22,7 +22,7 @@ variable "extra_tags" {
 }
 
 // default to creating public subnets
-variable "map_public_ip_on_launch" {
+variable "public" {
   description = "Boolean, maps to the map_public_ip_on_launch variable"
   default     = true
 }
