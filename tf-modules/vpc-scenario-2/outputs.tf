@@ -1,24 +1,39 @@
 //VPC id
 output "vpc_id" {
-  value = "${aws_vpc.main.id}"
+  value = "${module.vpc.id}"
 }
 
-//List of private subnet ids. None created if list is empty.
-output "private_subnet_ids" {
-  value = ["${module.subnets.private_ids}"]
+//VPC CIDR block
+output "vpc_cidr_block" {
+  value = "${module.vpc.cidr_block}"
 }
 
 //List of public subnet ids
 output "public_subnet_ids" {
-  value = ["${module.subnets.public_ids}"]
+  value = ["${module.public-subnets.ids}"]
+}
+
+//List of private subnet CIDR blocks
+output "public_cidr_blocks" {
+  value = ["${module.public-subnets.cidr_blocks}"]
 }
 
 // Route table id associated with public subnets
 output "public_route_table_id" {
-  value = "${aws_route_table.public.id}"
+  value = "${module.public-gateway.route_table_id}"
 }
 
 //Internet gateway id
 output "igw_id" {
-  value = "${aws_internet_gateway.main.id}"
+  value = "${module.public-gateway.gateway_id}"
+}
+
+//List of private subnet ids
+output "private_subnet_ids" {
+  value = ["${module.private-subnets.ids}"]
+}
+
+//List of private subnet CIDR blocks
+output "private_cidr_blocks" {
+  value = ["${module.private-subnets.cidr_blocks}"]
 }
