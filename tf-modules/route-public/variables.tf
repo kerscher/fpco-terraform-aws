@@ -2,6 +2,10 @@ variable "name_prefix" {
   description = "Name to prefix various resources with"
 }
 
+variable "vpc_id" {
+  description = "VPC ID where subnets will be created"
+}
+
 variable "extra_tags" {
   type        = "map"
   default     = {}
