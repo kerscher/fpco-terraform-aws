@@ -49,7 +49,6 @@ module "vpc" {
   extra_tags  = { kali = "ma" }
   public_subnet_cidrs  = ["${var.public_subnet_cidrs}"]
   private_subnet_cidrs = ["${var.private_subnet_cidrs}"]
-
 }
 
 module "ubuntu-xenial-ami" {
