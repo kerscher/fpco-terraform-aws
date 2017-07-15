@@ -32,6 +32,4 @@ variable "iops" {
     default = ""
     description = "The amount of IOPS to provision for the EBS block device"
 }
-variable "account_arn" {
-    description = "The AWS account number, for IAM role assigned to the instance created"
 }
